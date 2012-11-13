@@ -35,10 +35,10 @@ $ termnote someshow.yml
 
 Here's an example of the slides in use:
 
-![Chapter](example/chapter.png)
-![Text](example/text.png)
-![List](example/list.png)
-![Code](example/code.png)
+![Chapter](https://github.com/krainboltgreene/termnote/tree/master/example/chapter.png)
+![Text](https://github.com/krainboltgreene/termnote/tree/master/example/text.png)
+![List](https://github.com/krainboltgreene/termnote/tree/master/example/list.png)
+![Code](https://github.com/krainboltgreene/termnote/tree/master/example/code.png)
 
 
 Installation

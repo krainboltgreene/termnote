@@ -40,6 +40,7 @@ Here's an example of the slides in use:
 ![List](https://raw.github.com/krainboltgreene/termnote/master/example/list.png)
 ![Code](https://raw.github.com/krainboltgreene/termnote/master/example/code.png)
 
+You can then use **j** or **k** to navigate through the slides.
 
 Installation
 ============

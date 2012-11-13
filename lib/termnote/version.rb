@@ -1,3 +1,3 @@
-module Termnote
-  VERSION = "0.0.1"
+module TermNote
+  VERSION = "1.0.0"
 end

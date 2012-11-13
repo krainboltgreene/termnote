@@ -1,5 +1,31 @@
-require "termnote/version"
+require 'io/console'
+require 'colored'
+require 'pygments'
+require 'yaml'
+require_relative 'termnote/version'
+require_relative 'termnote/pane'
+require_relative 'termnote/show'
+require_relative 'termnote/pane'
 
-module Termnote
-  # Your code goes here...
+module TermNote
+  def show
+    @show ||= Show.new
+  end
+
+  def chapter(options)
+    Pane::Chapter.new options
+  end
+
+  def text(options)
+    Pane::Text.new options
+  end
+
+  def code(options)
+    Pane::Code.new options
+  end
+
+  def list(options)
+    Pane::List.new options
+  end
 end
+

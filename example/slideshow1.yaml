@@ -1,0 +1,33 @@
+---
+type: chapter
+title: How To Learn
+subtitle: A Presentation By Kurtis
+---
+type: text
+title: Find Inspiration
+content: |
+  Anyone who stops learning is old, whether
+  at twenty or eighty. Anyone who keeps
+  learning stays young. The greatest
+  thing in life is to keep your mind
+  young.
+
+  -- Henry Ford
+---
+type: list
+title: Materials
+items:
+  - Paper
+  - Pencil
+  - Heart
+---
+type: code
+language: ruby
+source: |
+  # Some random code here
+  puts 'Hello, world!'
+  name + nom
+  function(full)
+  class Foo < Far
+    :sum
+  end

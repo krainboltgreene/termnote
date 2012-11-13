@@ -1,0 +1,126 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>TermNote</title>
+  <meta name="description" content="A Terminal Keynote processor">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">TermNote</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">A Terminal Keynote processor</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/krainboltgreene/termnote/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/krainboltgreene/termnote/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/krainboltgreene/termnote" class="code">View TermNote on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <p>TermNote is a program that allows you to write presentations either in Ruby:</p>
+
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'termnote'</span>
+
+<span class="kp">include</span> <span class="no">TermNote</span>
+
+<span class="n">show</span><span class="o">.</span><span class="n">add</span> <span class="n">chapter</span> <span class="n">title</span><span class="p">:</span> <span class="s2">"Hello, World"</span>
+<span class="n">show</span><span class="o">.</span><span class="n">add</span> <span class="n">code</span> <span class="n">language</span><span class="p">:</span> <span class="s2">"Ruby"</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="o">&lt;&lt;-</span><span class="no">SOURCE</span>
+<span class="sh">  puts "Hello, world!"</span>
+<span class="no">SOURCE</span>
+<span class="n">show</span><span class="o">.</span><span class="n">start</span>
+</pre></div>
+
+<p>Or via a <code>.yaml</code> file:</p>
+
+<div class="highlight"><pre><span class="nn">---</span>
+<span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">chapter</span>
+<span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">Hello, World</span>
+<span class="l-Scalar-Plain">subtitle</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">By Kurtis</span>
+<span class="nn">---</span>
+<span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">code</span>
+<span class="l-Scalar-Plain">source</span><span class="p-Indicator">:</span> <span class="p-Indicator">|</span>
+  <span class="no">puts "Hello, world!"</span>
+</pre></div>
+
+<p>and then with the <code>termnote</code> binary:</p>
+
+<div class="highlight"><pre><span class="nv">$ </span>termnote someshow.yml
+</pre></div>
+
+<p>Here's an example of the slides in use:</p>
+
+<p><img src="https://raw.github.com/krainboltgreene/termnote/master/example/chapter.png" alt="Chapter"><img src="https://raw.github.com/krainboltgreene/termnote/master/example/text.png" alt="Text"><img src="https://raw.github.com/krainboltgreene/termnote/master/example/list.png" alt="List"><img src="https://raw.github.com/krainboltgreene/termnote/master/example/code.png" alt="Code"></p>
+
+<p>You can then use <strong>j</strong> or <strong>k</strong> to navigate through the slides.</p>
+
+<h1>Installation</h1>
+
+<p>Install it yourself via:</p>
+
+<pre><code>$ gem install termnote
+</code></pre>
+
+<h1>Usage</h1>
+
+<p>Usage is pretty simple, there are 4 types of slides:</p>
+
+<ul>
+<li>Chapter, a single <code>title</code> [optional: and <code>subtitle</code>]</li>
+<li>Text, a blob of text called <code>content</code> [optional: and <code>title</code>]</li>
+<li>List, a list of <code>items</code> [optional: and <code>title</code>]</li>
+<li>Code, a syntax highlighted blob called <code>source</code>
+</li>
+</ul><p>You can change the way things are printed out by overriding the classes for
+your specific presentation, but only if you do things programatically.</p>
+
+<h1>Contributing</h1>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/krainboltgreene" class="avatar"><img src="https://secure.gravatar.com/avatar/e1e3a7a63326260b58f82d12f9003e64?s=30&amp;d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="48" height="48"/></a> <a href="https://github.com/krainboltgreene">krainboltgreene</a> maintains <a href="https://github.com/krainboltgreene/termnote">TermNote</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="http://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/krainboltgreene/termnote/tarball/master" class="tar">tar</a><a href="https://github.com/krainboltgreene/termnote/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>

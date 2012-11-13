@@ -1,29 +1,73 @@
-# Termnote
+TermNote
+--------
 
-TODO: Write a gem description
+TermNote is a program that allows you to write presentations either in Ruby:
 
-## Installation
+``` ruby
+require 'termnote'
 
-Add this line to your application's Gemfile:
+include TermNote
 
-    gem 'termnote'
+show.add chapter title: "Hello, World"
+show.add code language: "Ruby", source: <<-SOURCE
+  puts "Hello, world!"
+SOURCE
+show.start
+```
+Or via a `.yaml` file:
 
-And then execute:
+``` yaml
+---
+type: chapter
+title: Hello, World
+subtitle: By Kurtis
+---
+type: code
+source: |
+  puts "Hello, world!"
+```
 
-    $ bundle
+and then with the `termnote` binary:
 
-Or install it yourself as:
+``` shell
+$ termnote someshow.yml
+```
+
+Here's an example of the slides in use:
+
+![]
+![]
+![]
+![]
+
+
+Installation
+============
+
+Install it yourself via:
 
     $ gem install termnote
 
-## Usage
 
-TODO: Write usage instructions here
+Usage
+=====
 
-## Contributing
+Usage is pretty simple, there are 4 types of slides:
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+  * Chapter, a single `title` [optional: and `subtitle`]
+  * Text, a blob of text called `content` [optional: and `title`]
+  * List, a list of `items` [optional: and `title`]
+  * Code, a syntax highlighted blob called `source`
+
+You can change the way things are printed out by overriding the classes for
+your specific presentation, but only if you do things programatically.
+
+
+Contributing
+============
+
+  1. Fork it
+  2. Create your feature branch (`git checkout -b my-new-feature`)
+  3. Commit your changes (`git commit -am 'Add some feature'`)
+  4. Push to the branch (`git push origin my-new-feature`)
+  5. Create new Pull Request

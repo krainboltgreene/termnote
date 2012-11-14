@@ -34,10 +34,6 @@ module TermNote
       "\n" * (height - rows.size)
     end
 
-    def footer
-      "[#{show.panes.index(self) + 1}/#{show.panes.size}]".bold
-    end
-
     def formated_rows
       rows.map { |row| gutter + row }.join("\n")
     end

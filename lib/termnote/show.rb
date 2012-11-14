@@ -44,6 +44,12 @@ module TermNote
       @pane = panes[position - 1] || panes.last
     end
 
+    def header
+      "[#{position}/#{total}] - #{panes.first.title}\n".bold
+    end
+
+    private
+
     def command
       $stdin.getch
     end

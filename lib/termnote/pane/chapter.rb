@@ -2,6 +2,7 @@ module TermNote
   module Pane
     class Chapter
       include Pane
+      include Helpers::Title
 
       attr_accessor :title, :subtitle
 
@@ -11,25 +12,17 @@ module TermNote
       end
 
       def rows
-        if subtitle
-          title_rows + subtitle_rows
-        else
-          title_rows
-        end
+        subtitle ? title_row + subtitle_row : title_row
       end
 
       private
 
-      def title_rows
-        title.split('').each_slice(80).map do |row|
-          row.join.center(width).bold
-        end
+      def subtitle_row
+        wrapped_title(subtitle).map &method(:subtitle_row_format)
       end
 
-      def subtitle_rows
-        subtitle.split('').each_slice(80).map do |row|
-          row.join.center(width)
-        end
+      def subtitle_row_format(row)
+        row.join.center(80)
       end
     end
   end

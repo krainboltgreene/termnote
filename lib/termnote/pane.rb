@@ -1,7 +1,8 @@
+require_relative 'pane/helpers'
 require_relative 'pane/chapter'
-require_relative 'pane/code'
-require_relative 'pane/list'
 require_relative 'pane/text'
+require_relative 'pane/code'
+
 module TermNote
   module Pane
     attr_accessor :show, :height, :width, :rows
@@ -32,8 +33,8 @@ module TermNote
       "\n" * (height - rows.size)
     end
 
-    def footer
-      "[#{show.panes.index(self) + 1}/#{show.panes.size}]".bold
+    def formated_rows
+      rows.map { |row| gutter + row }.join("\n")
     end
 
     def formated_rows

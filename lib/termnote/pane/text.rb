@@ -2,6 +2,8 @@ module TermNote
   module Pane
     class Text
       include Pane
+      include Helpers::Title
+      include Helpers::Content
 
       attr_accessor :title, :content
 
@@ -10,10 +12,10 @@ module TermNote
         @content = options[:content] || options['content']
       end
 
+      private
+
       def rows
-        "#{title.center(width).bold}\n\n#{content}".split("\n").map do |row|
-          row.center(width)
-        end
+        title ? title_row + content_row : content_row
       end
     end
   end

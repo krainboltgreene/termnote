@@ -3,7 +3,7 @@ module TermNote
     attr_accessor :panes
 
     def initialize
-      @panes = []
+      @panes ||= []
     end
 
     def add(pane)

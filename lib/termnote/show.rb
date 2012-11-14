@@ -7,6 +7,7 @@ module TermNote
     end
 
     def add(pane)
+      raise ArgumentError, "Pane required" if pane.nil?
       panes << pane
       pane.show = self
     end

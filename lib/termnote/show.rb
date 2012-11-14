@@ -20,6 +20,10 @@ module TermNote
       panes.index pane
     end
 
+    def total
+      panes.size
+    end
+
     def start
       active = true
       while active

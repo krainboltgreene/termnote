@@ -2,6 +2,8 @@ require_relative 'pane/chapter'
 require_relative 'pane/code'
 require_relative 'pane/list'
 require_relative 'pane/text'
+require_relative 'pane/console'
+
 module TermNote
   module Pane
     attr_accessor :show, :height, :width, :rows

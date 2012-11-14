@@ -23,11 +23,7 @@ module TermNote
     end
 
     def render
-      puts space + formated_rows + space + footer
-    end
-
-    def gutter
-      " " * (width * 0.1)
+      puts show.header + space + formated_rows + space
     end
 
     def space

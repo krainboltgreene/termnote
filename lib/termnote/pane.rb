@@ -2,14 +2,16 @@ require_relative 'pane/chapter'
 require_relative 'pane/code'
 require_relative 'pane/list'
 require_relative 'pane/text'
+require_relative 'pane/console'
+
 module TermNote
   module Pane
     attr_accessor :show, :height, :width, :rows
 
     def call(window_size)
       window_height, window_width = window_size
-      @width = window_width - (window_width * 0.2)
-      @height = window_height / 2
+      @width = window_width
+      @height = window_height
       clear
       render
     end
@@ -21,23 +23,19 @@ module TermNote
     end
 
     def render
-      puts space + formated_rows + space + footer
-    end
-
-    def gutter
-      " " * (width * 0.1)
+      puts show.header + space + formated_rows + space
     end
 
     def space
-      "\n" * (height - rows.size)
-    end
-
-    def footer
-      "[#{show.panes.index(self) + 1}/#{show.panes.size}]".bold
+      "\n" * (height / 2)
     end
 
     def formated_rows
       rows.map { |row| gutter + row }.join("\n")
+    end
+
+    def gutter
+      " " * (width / 10)
     end
   end
 end

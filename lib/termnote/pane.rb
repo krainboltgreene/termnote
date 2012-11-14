@@ -10,8 +10,8 @@ module TermNote
 
     def call(window_size)
       window_height, window_width = window_size
-      @width = window_width - (window_width * 0.2)
-      @height = window_height / 2
+      @width = window_width
+      @height = window_height
       clear
       render
     end
@@ -27,11 +27,15 @@ module TermNote
     end
 
     def space
-      "\n" * (height - rows.size)
+      "\n" * (height / 2)
     end
 
     def formated_rows
       rows.map { |row| gutter + row }.join("\n")
+    end
+
+    def gutter
+      " " * (width / 10)
     end
   end
 end

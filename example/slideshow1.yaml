@@ -21,6 +21,9 @@ items:
   - Pencil
   - Heart
 ---
+type: console
+binary: irb
+---
 type: code
 language: ruby
 source: |

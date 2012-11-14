@@ -13,12 +13,7 @@ module TermNote
     def to_panes
       @documents.map do |document|
         type = document['type']
-        case type
-          when "chapter" then Pane::Chapter.new document
-          when "code" then Pane::Code.new document
-          when "list" then Pane::List.new document
-          when "text" then Pane::Text.new document
-        end
+        send(type, document)
       end
     end
   end

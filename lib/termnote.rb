@@ -27,5 +27,9 @@ module TermNote
   def list(options)
     Pane::List.new options
   end
+
+  def console(options)
+    Pane::Console.new options
+  end
 end
 

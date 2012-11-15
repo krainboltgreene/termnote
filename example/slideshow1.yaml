@@ -14,12 +14,11 @@ content: |
 
   -- Henry Ford
 ---
-type: list
-title: Materials
-items:
-  - Paper
-  - Pencil
-  - Heart
+type: text
+content: |
+  * Be assertive
+  * Don't let anyone down!
+  * Be yourself!
 ---
 type: console
 binary: irb

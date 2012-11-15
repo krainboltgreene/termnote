@@ -1,7 +1,7 @@
+require_relative 'pane/helpers'
 require_relative 'pane/chapter'
-require_relative 'pane/code'
-require_relative 'pane/list'
 require_relative 'pane/text'
+require_relative 'pane/code'
 require_relative 'pane/console'
 
 module TermNote
@@ -10,7 +10,7 @@ module TermNote
 
     def call(window_size)
       window_height, window_width = window_size
-      @width = window_width - 50
+      @width = window_width
       @height = window_height
       clear
       render
@@ -27,15 +27,24 @@ module TermNote
     end
 
     def space
-      "\n" * (height / 2)
+     "\n" * (height / 2)
     end
 
     def formated_rows
-      rows.map { |row| gutter + row }.join("\n")
+      @output ||= rows.map(&method(:guttered_row)).join("\n")
     end
 
-    def gutter
-      " " * (width / 10)
+    def guttered_row(row)
+      raise ArgumentError, "content was larger than screen" if gutter_width(row) < 0
+      gutter(row) + row
+    end
+
+    def gutter(row)
+      " " * gutter_width(row)
+    end
+
+    def gutter_width(row)
+      (width / 2.0).floor - (row.width / 2.0).ceil
     end
   end
 end

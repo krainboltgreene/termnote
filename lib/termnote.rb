@@ -1,5 +1,5 @@
 require 'io/console'
-require 'colored'
+require 'smart_colored/extend'
 require 'pygments'
 require 'yaml'
 require_relative 'termnote/version'

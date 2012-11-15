@@ -19,6 +19,15 @@ module TermNote
       def highlighted
         Pygments.highlight source, formatter: 'terminal256', lexer: language
       end
+
+      def gutter
+        " " * (width / 2)
+      end
+
+      def space
+        newlines = height > rows.size ? (height - rows.size) / 2 : 0
+        "\n" * newlines
+      end
     end
   end
 end

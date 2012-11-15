@@ -20,6 +20,9 @@ content: |
   * Don't let anyone down!
   * Be yourself!
 ---
+type: console
+binary: irb
+---
 type: code
 language: ruby
 source: |

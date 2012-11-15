@@ -7,6 +7,7 @@ module TermNote
     end
 
     def add(pane)
+      raise ArgumentError, "Pane required" if pane.nil?
       panes << pane
       pane.show = self
     end
@@ -17,6 +18,10 @@ module TermNote
 
     def position
       panes.index pane
+    end
+
+    def total
+      panes.size
     end
 
     def start
@@ -38,6 +43,12 @@ module TermNote
     def backward
       @pane = panes[position - 1] || panes.last
     end
+
+    def header
+      "[#{position}/#{total}] - #{panes.first.title}\n".bold
+    end
+
+    private
 
     def command
       $stdin.getch

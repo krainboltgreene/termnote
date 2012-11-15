@@ -9,7 +9,7 @@ require 'termnote'
 include TermNote
 
 show.add chapter title: "Hello, World"
-show.add code language: "Ruby", source: <<-SOURCE
+show.add code language: "ruby", source: <<-SOURCE
   puts "Hello, world!"
 SOURCE
 show.start
@@ -63,6 +63,36 @@ Usage is pretty simple, there are 4 types of slides:
 You can change the way things are printed out by overriding the classes for
 your specific presentation, but only if you do things programatically.
 
+Ruby Usage Examples
+=============
+
+**Add a title slide**
+
+```ruby
+show.add chapter title: "Title Slide"
+```
+
+**Add a text slide**
+
+```ruby
+show.add text title: "Content Title", content: "content blob"
+```
+
+**Add a list slide**
+
+```ruby
+show.add list title: "title", items: ["item 1", "item 2", "item 3"]
+```
+
+**Add a slide with code**
+
+```ruby
+show.add code langauge: "ruby", source: <<-SOURCE
+  def method
+    awesome = true
+  end
+SOURCE
+```
 
 Contributing
 ============

@@ -31,7 +31,7 @@ module TermNote
     end
 
     def formated_rows
-      rows.map { |row| gutter + row }.join("\n")
+      @output ||= rows.map(&method(:guttered_row)).join("\n")
     end
 
     def guttered_row(row)

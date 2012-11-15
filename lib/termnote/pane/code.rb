@@ -20,8 +20,8 @@ module TermNote
         Pygments.highlight source, formatter: 'terminal256', lexer: language
       end
 
-      def gutter
-        " " * (width / 2)
+      def gutter_width(row)
+        width * 0.25
       end
 
       def space

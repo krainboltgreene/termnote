@@ -3,7 +3,7 @@ module TermNote
     attr_accessor :panes
 
     def initialize
-      @panes = []
+      @panes ||= []
     end
 
     def add(pane)
@@ -45,7 +45,7 @@ module TermNote
     end
 
     def header
-      "[#{position}/#{total}] - #{panes.first.title}\n".bold
+      "[#{position + 1}/#{total}] - #{panes.first.title}\n".bold
     end
 
     private

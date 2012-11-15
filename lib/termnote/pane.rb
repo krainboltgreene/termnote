@@ -10,7 +10,7 @@ module TermNote
 
     def call(window_size)
       window_height, window_width = window_size
-      @width = window_width - 50
+      @width = window_width
       @height = window_height
       clear
       render

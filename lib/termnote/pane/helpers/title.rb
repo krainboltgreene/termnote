@@ -9,7 +9,7 @@ module TermNote
         end
 
         def title_row_format(row)
-          row.join.center(80).bold
+          row.join.bold
         end
 
         def wrapped_title(title)

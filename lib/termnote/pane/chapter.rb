@@ -22,7 +22,7 @@ module TermNote
       end
 
       def subtitle_row_format(row)
-        row.join.center(80)
+        row.join
       end
     end
   end

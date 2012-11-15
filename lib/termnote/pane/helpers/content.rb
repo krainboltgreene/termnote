@@ -5,11 +5,7 @@ module TermNote
         private
 
         def content_row
-          wrapped_content(content).map &method(:content_row_format)
-        end
-
-        def content_row_format(row)
-          row.center(80)
+          wrapped_content(content)
         end
 
         def wrapped_content(content)

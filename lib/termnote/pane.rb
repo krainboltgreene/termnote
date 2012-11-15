@@ -34,8 +34,17 @@ module TermNote
       rows.map { |row| gutter + row }.join("\n")
     end
 
-    def gutter
-      " " * (width / 10)
+    def guttered_row(row)
+      raise ArgumentError, "content was larger than screen" if gutter_width(row) < 0
+      gutter(row) + row
+    end
+
+    def gutter(row)
+      " " * gutter_width(row)
+    end
+
+    def gutter_width(row)
+      (width / 2.0).floor - (row.width / 2.0).ceil
     end
   end
 end

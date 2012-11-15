@@ -17,6 +17,10 @@ module TermNote
       def rows
         title ? title_row + content_row : content_row
       end
+
+      def gutter_width(row)
+        width * 0.25
+      end
     end
   end
 end

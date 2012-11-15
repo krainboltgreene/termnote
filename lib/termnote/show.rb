@@ -45,7 +45,7 @@ module TermNote
     end
 
     def header
-      "[#{position}/#{total}] - #{panes.first.title}\n".bold
+      "[#{position + 1}/#{total}] - #{panes.first.title}\n".bold
     end
 
     private

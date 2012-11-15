@@ -1,6 +1,6 @@
 require 'io/console'
 require 'smart_colored/extend'
-require 'pygments'
+require 'coderay'
 require 'yaml'
 require_relative 'termnote/version'
 require_relative 'termnote/pane'

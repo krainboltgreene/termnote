@@ -17,7 +17,7 @@ module TermNote
       private
 
       def highlighted
-        Pygments.highlight source, formatter: 'terminal256', lexer: language
+        CodeRay.scan(source, language).term
       end
 
       def gutter_width(row)

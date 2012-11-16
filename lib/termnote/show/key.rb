@@ -1,16 +1,18 @@
 module TermNote
   class Show
     module Key
+      KEYS = %w[j k q]
+
       def self.j(show)
-        Control.forward show
+        show.forward
       end
 
       def self.k(show)
-        Control.backward show
+        show.backward
       end
 
       def self.q(show)
-        Control.quit show
+        show.close
       end
     end
   end

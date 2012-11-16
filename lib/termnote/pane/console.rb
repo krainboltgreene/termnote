@@ -13,7 +13,7 @@ module TermNote
 
       def render
         system binary
-        Show::Key.forward
+        show.forward
       end
     end
   end

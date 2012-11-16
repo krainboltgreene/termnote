@@ -4,6 +4,7 @@ require 'termnote/show/key'
 module TermNote
   class Show
     attr_accessor :panes, :state
+    attr_writer :pane
 
     def initialize
       @panes ||= []
@@ -28,21 +29,33 @@ module TermNote
     end
 
     def start
-      state = true
-      while state
+      @state = true
+      while @state
         pane.call $stdout.winsize
-        Key.send command, self
+        Key.send @command, self if Key::KEYS.include? capture_command
       end
     end
 
-    private
-
-    def command
-      $stdin.getch
+    def close
+      @state = false
     end
 
     def header
       "[#{position + 1}/#{total}] - #{panes.first.title}\n".bold
+    end
+
+    def forward
+      @pane = panes[position + 1] || panes.first
+    end
+
+    def backward
+      @pane = panes[position - 1] || panes.last
+    end
+
+    private
+
+    def capture_command
+      @command = $stdin.getch
     end
   end
 end

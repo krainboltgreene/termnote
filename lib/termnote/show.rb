@@ -1,6 +1,9 @@
+require 'termnote/show/control'
+require 'termnote/show/key'
+
 module TermNote
   class Show
-    attr_accessor :panes
+    attr_accessor :panes, :state
 
     def initialize
       @panes ||= []
@@ -25,33 +28,21 @@ module TermNote
     end
 
     def start
-      active = true
-      while active
+      state = true
+      while state
         pane.call $stdout.winsize
-        case command
-          when "j" then forward
-          when "k" then backward
-          when "q" then active = false
-        end
+        Key.send command, self
       end
-    end
-
-    def forward
-      @pane = panes[position + 1] || panes.first
-    end
-
-    def backward
-      @pane = panes[position - 1] || panes.last
-    end
-
-    def header
-      "[#{position + 1}/#{total}] - #{panes.first.title}\n".bold
     end
 
     private
 
     def command
       $stdin.getch
+    end
+
+    def header
+      "[#{position + 1}/#{total}] - #{panes.first.title}\n".bold
     end
   end
 end

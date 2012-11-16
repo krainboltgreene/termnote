@@ -13,7 +13,7 @@ module TermNote
     def to_panes
       @documents.map do |document|
         type = document['type']
-        send(type, document)
+        send type, document
       end
     end
   end

@@ -23,7 +23,8 @@ module TermNote
       attr_accessor :image, :chars, :border
 
       def initialize(options)
-        filename = options['__dir'] + "/" + (options[:filename] || options['filename'])
+        filename = options[:filename] || options['filename']
+        filename = options['__dir'] + "/" + filename unless options['__dir'].nil?
         @border = options[:border] || options['border']
         @chars = [" "] + %w( % H m A v @ y < # $ > % ^ o * : ' ` .)
         @image = scale(Magick::Image::read(filename).first).quantize(chars.size)

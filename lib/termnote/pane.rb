@@ -1,8 +1,8 @@
-require_relative 'pane/helpers'
-require_relative 'pane/chapter'
-require_relative 'pane/text'
-require_relative 'pane/code'
-require_relative 'pane/console'
+require 'termnote/pane/helpers'
+require 'termnote/pane/chapter'
+require 'termnote/pane/text'
+require 'termnote/pane/code'
+require 'termnote/pane/console'
 
 module TermNote
   module Pane

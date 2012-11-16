@@ -2,10 +2,9 @@ require 'io/console'
 require 'smart_colored/extend'
 require 'coderay'
 require 'yaml'
-require_relative 'termnote/version'
-require_relative 'termnote/pane'
-require_relative 'termnote/show'
-require_relative 'termnote/pane'
+require 'termnote/version'
+require 'termnote/pane'
+require 'termnote/show'
 
 module TermNote
   def show

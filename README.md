@@ -39,6 +39,8 @@ Here's an example of the slides in use:
 ![Text](https://raw.github.com/krainboltgreene/termnote/master/example/text.png)
 ![List](https://raw.github.com/krainboltgreene/termnote/master/example/list.png)
 ![Code](https://raw.github.com/krainboltgreene/termnote/master/example/code.png)
+![Image](https://raw.github.com/krainboltgreene/termnote/master/example/image.png)
+![Small-image](https://raw.github.com/krainboltgreene/termnote/master/example/small-image.png)
 
 You can then use **j** or **k** to navigate through the slides.
 
@@ -59,6 +61,7 @@ Usage is pretty simple, there are 4 types of slides:
   * Text, a blob of text called `content` [optional: and `title`]
   * List, a list of `items` [optional: and `title`]
   * Code, a syntax highlighted blob called `source`
+  * Image, an image in a relative directory to the yaml file
 
 You can change the way things are printed out by overriding the classes for
 your specific presentation, but only if you do things programatically.

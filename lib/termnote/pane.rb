@@ -3,15 +3,16 @@ require_relative 'pane/chapter'
 require_relative 'pane/text'
 require_relative 'pane/code'
 require_relative 'pane/console'
+require_relative 'pane/image'
 
 module TermNote
   module Pane
-    attr_accessor :show, :height, :width, :rows
+    attr_accessor :show, :height, :width, :rows, :output_height
 
     def call(window_size)
       window_height, window_width = window_size
       @width = window_width
-      @height = window_height
+      @height = window_height-2
       clear
       render
     end
@@ -23,15 +24,22 @@ module TermNote
     end
 
     def render
-      puts show.header + space + formated_rows + space
+      puts show.header 
+      output = formated_rows
+      
+      puts space + output + space
     end
 
     def space
-     "\n" * (height / 2)
+      return "" if (height - output_height) < 0
+      "\n" * ((height - output_height) / 2)
     end
 
     def formated_rows
-      @output ||= rows.map(&method(:guttered_row)).join("\n")
+      return @output if @output
+      output = rows.map(&method(:guttered_row))
+      @output_height = output.size
+      @output = output.join("\n")
     end
 
     def guttered_row(row)

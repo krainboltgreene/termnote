@@ -33,3 +33,7 @@ source: |
   class Foo < Far
     :sum
   end
+---
+type: image
+filename: bender.png
+border: true

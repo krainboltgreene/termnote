@@ -6,7 +6,8 @@ require 'termnote/loader'
 include TermNote
 
 file = File.read ARGV.first
+dir = File.dirname ARGV.first
 
-TermNote::Loader.new(file).to_panes.each { |pane| show.add pane }
+TermNote::Loader.new(file, dir).to_panes.each { |pane| show.add pane }
 
 show.start

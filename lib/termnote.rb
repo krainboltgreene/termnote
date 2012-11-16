@@ -5,7 +5,6 @@ require 'yaml'
 require_relative 'termnote/version'
 require_relative 'termnote/pane'
 require_relative 'termnote/show'
-require_relative 'termnote/pane'
 
 module TermNote
   def show
@@ -30,6 +29,10 @@ module TermNote
 
   def console(options)
     Pane::Console.new options
+  end
+
+  def image(options)
+    Pane::Image.new options
   end
 end
 

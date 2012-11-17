@@ -1,4 +1,3 @@
-require 'termnote/show/control'
 require 'termnote/show/key'
 
 module TermNote

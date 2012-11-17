@@ -6,7 +6,12 @@ require 'termnote/version'
 Gem::Specification.new do |gem|
   gem.name          = "termnote"
   gem.version       = TermNote::VERSION
-  gem.authors       = ["Kurtis Rainbolt-Greene"]
+  gem.authors       = [
+    "Kurtis Rainbolt-Greene",
+    "Halan Pinheiro",
+    "Jessie A. Young",
+    "Miles Z. Sterrett"
+  ]
   gem.email         = ["me@kurtisrainboltgreene.name"]
   gem.summary       = %q{A terminal based keynote presentation machine}
   gem.description   = gem.summary

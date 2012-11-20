@@ -7,12 +7,14 @@ require_relative 'pane/image'
 
 module TermNote
   module Pane
-    attr_accessor :show, :height, :width, :rows, :output_height
+    attr_accessor :show, :height, :width, :rows
+
+    SYSTEM_PADDING = 1
 
     def call(window_size)
       window_height, window_width = window_size
       @width = window_width
-      @height = window_height-2
+      @height = window_height - 2*SYSTEM_PADDING
       clear
       render
     end
@@ -36,10 +38,11 @@ module TermNote
     end
 
     def formated_rows
-      return @output if @output
-      output = rows.map(&method(:guttered_row))
-      @output_height = output.size
-      @output = output.join("\n")
+      @output ||= rows.map(&method(:guttered_row)).join("\n")      
+    end
+
+    def output_height
+      @output_height ||= rows.map(&method(:guttered_row)).size
     end
 
     def guttered_row(row)

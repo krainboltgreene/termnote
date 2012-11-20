@@ -37,3 +37,4 @@ source: |
 type: image
 filename: bender.png
 border: true
+color: false

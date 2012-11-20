@@ -20,6 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_runtime_dependency 'smart_colored', '~> 1.1'
   gem.add_runtime_dependency 'pygments.rb', '~> 0.3'
   gem.add_runtime_dependency 'rmagick', '~> 2.13.1'
+  gem.add_runtime_dependency 'rainbow', '~> 1.1.4'
   gem.add_development_dependency 'yard'
   gem.add_development_dependency 'kramdown'
 end

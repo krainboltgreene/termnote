@@ -23,14 +23,14 @@ module TermNote
     end
 
     def render
-      puts show.header + space + formated_rows + space
+      puts show.header + space + formatted_rows + space
     end
 
     def space
      "\n" * (height / 2)
     end
 
-    def formated_rows
+    def formatted_rows
       @output ||= rows.map(&method(:guttered_row)).join("\n")
     end
 

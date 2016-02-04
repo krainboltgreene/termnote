@@ -87,7 +87,7 @@ show.add list title: "title", items: ["item 1", "item 2", "item 3"]
 **Add a slide with code**
 
 ```ruby
-show.add code langauge: "ruby", source: <<-SOURCE
+show.add code language: "ruby", source: <<-SOURCE
   def method
     awesome = true
   end

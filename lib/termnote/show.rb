@@ -7,6 +7,7 @@ module TermNote
 
     def initialize
       @panes ||= []
+      ObjectSpace.define_finalizer( self, self.class.finalize )
     end
 
     def add(pane)
@@ -28,6 +29,7 @@ module TermNote
     end
 
     def start
+      Helpers::Tmux.ensure_zoomed_in
       @state = true
       while @state
         pane.call $stdout.winsize
@@ -55,6 +57,10 @@ module TermNote
 
     def capture_command
       @command = $stdin.getch
+    end
+
+    def self.finalize
+      proc { Helpers::Tmux.ensure_zoomed_out }
     end
   end
 end
